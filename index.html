@@ -1,72 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rockin’ AI Project — The Aether Engine · AI For Better Future!</title>
+<meta name="description" content="Explore how artificial intelligence empowers growth and innovation for a brighter future.">
+<meta name="theme-color" content="#1a120b">
+<meta property="og:title" content="Rockin’ AI Project"><meta property="og:description" content="AI For Better Future!"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#150e08;--bg2:#21160d;--brass:#d4a64a;--brass2:#8a6422;--cop:#c4693c;--teal:#52e6c8;--paper:#ecdcb4;--ink:#2a1c10;--txt:#e9dcc0;--mut:#a8977a;
+--h:'Cinzel',Georgia,serif;--b:'IM Fell English',Georgia,serif;--m:'Special Elite','Courier New',monospace;
+--bra:linear-gradient(135deg,#f4d98a,#d4a64a 40%,#8a6422 75%,#e3be6a)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--txt);font-family:var(--b);font-size:1.15rem;line-height:1.65;overflow-x:hidden;
+background-image:radial-gradient(ellipse at 50% 0,#2e1d10,transparent 60%),repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0 2px,transparent 2px 6px)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1160px;margin:auto;padding:0 24px;position:relative;z-index:2}
+.brass{background:var(--bra);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1,h2,h3,h4{font-family:var(--h);letter-spacing:.04em;line-height:1.1}
+/* gears */
+.gear{position:absolute;pointer-events:none;opacity:.22;animation:spin 40s linear infinite;z-index:1}
+.gear.r{animation-direction:reverse}.gear path{fill:var(--brass2);stroke:var(--brass);stroke-width:1.5}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;background:linear-gradient(#1c1209f2,#150e08e6);border-bottom:3px double var(--brass2);backdrop-filter:blur(8px);padding-top:env(safe-area-inset-top,0)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:70px}
+.logo{display:flex;gap:12px;align-items:center;font-family:var(--h);font-weight:900;letter-spacing:.08em;font-size:1.05rem}
+.logo svg{width:38px;height:38px;animation:spin 12s linear infinite}.logo path{fill:var(--brass);stroke:var(--brass2)}
+.links{display:flex;gap:26px;align-items:center;font-family:var(--h);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
+.links a:not(.btn){color:var(--mut);transition:.2s}.links a:not(.btn):hover{color:var(--brass)}
+.burger{display:none;background:none;border:2px solid var(--brass2);color:var(--brass);width:44px;height:44px;border-radius:6px;font-size:1.3rem;cursor:pointer}
+.btn{display:inline-block;font-family:var(--h);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem;padding:15px 32px;border-radius:4px;cursor:pointer;border:2px solid var(--brass2);position:relative;transition:.25s;font-size:.85rem}
+.btn.p{background:var(--bra);color:#2a1c10;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 6px 0 var(--brass2),0 14px 30px rgba(0,0,0,.5)}
+.btn.p:hover{transform:translateY(3px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 3px 0 var(--brass2),0 8px 20px rgba(0,0,0,.5)}
+.btn.g{background:transparent;color:var(--brass)}.btn.g:hover{background:rgba(212,166,74,.12);box-shadow:0 0 24px rgba(212,166,74,.3)}
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;padding:150px 0 100px;overflow:hidden;text-align:center}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(82,230,200,.12),transparent 55%)}
+.steam{position:absolute;bottom:0;left:0;right:0;height:50%;pointer-events:none;z-index:1}
+.steam i{position:absolute;bottom:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(#e9dcc033,transparent 70%);animation:rise 9s infinite ease-out;opacity:0}
+@keyframes rise{20%{opacity:.8}100%{transform:translateY(-480px) scale(2.4);opacity:0}}
+.badge{display:inline-flex;gap:10px;align-items:center;font-family:var(--m);color:var(--teal);border:1px solid rgba(82,230,200,.4);padding:7px 18px;border-radius:3px;font-size:.9rem;margin-bottom:26px;background:rgba(82,230,200,.06)}
+.badge b{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:bl 1.4s infinite}@keyframes bl{50%{opacity:.2}}
+h1{font-size:clamp(2.6rem,8vw,6rem);font-weight:900;text-shadow:0 4px 0 #0008}
+h1 small{display:block;font-size:.3em;letter-spacing:.5em;color:var(--mut);margin-bottom:14px;font-weight:500}
+.lead{max-width:660px;margin:26px auto 40px;font-size:1.3rem;color:var(--mut);font-style:italic}
+.cta{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+/* ticker */
+.tick{background:var(--bg2);border-block:3px double var(--brass2);overflow:hidden;padding:16px 0;font-family:var(--h);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.tk{display:flex;gap:44px;width:max-content;animation:mq 40s linear infinite;color:var(--mut)}.tk b{color:var(--brass)}@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:110px 0;position:relative;overflow:hidden}
+.eb{font-family:var(--m);color:var(--cop);letter-spacing:.25em;text-transform:uppercase;font-size:.85rem;margin-bottom:14px}
+h2{font-size:clamp(1.9rem,4.6vw,3.2rem);font-weight:700;max-width:780px}
+.sub{color:var(--mut);max-width:620px;margin-top:18px}
+.orn{display:flex;align-items:center;gap:14px;margin:26px 0;color:var(--brass2)}.orn::before,.orn::after{content:"";height:2px;flex:0 0 70px;background:var(--bra)}
+/* gauges */
+.gs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
+.gauge{text-align:center;background:linear-gradient(#2a1b0e,#1a1109);border:3px solid var(--brass2);border-radius:20px;padding:22px 14px 20px;box-shadow:inset 0 0 30px #000a,0 10px 30px #0008;position:relative}
+.gauge::before,.gauge::after{content:"";position:absolute;top:10px;width:9px;height:9px;border-radius:50%;background:radial-gradient(#f4d98a,#8a6422)}.gauge::before{left:10px}.gauge::after{right:10px}
+.gauge svg{width:100%;max-width:200px}.nd{transform-origin:100px 100px;transform:rotate(-120deg);transition:transform 2.4s cubic-bezier(.3,1.6,.5,1)}
+.gauge strong{display:block;font-family:var(--h);font-size:2rem;color:var(--brass)}.gauge span{font-family:var(--m);color:var(--mut);font-size:.9rem}
+/* engines */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.card{background:linear-gradient(160deg,#2b1c0f,#1a1109);border:2px solid var(--brass2);border-radius:8px;padding:38px 30px;position:relative;transition:.35s;box-shadow:inset 0 0 0 6px #150e08,inset 0 0 0 8px var(--brass2)}
+.card:hover{transform:translateY(-10px);box-shadow:inset 0 0 0 6px #150e08,inset 0 0 0 8px var(--brass),0 0 40px rgba(212,166,74,.25)}
+.ic{width:70px;height:70px;border-radius:50%;border:3px solid var(--brass);display:grid;place-items:center;font-size:2rem;margin-bottom:22px;background:radial-gradient(#3b2a14,#150e08);box-shadow:0 0 20px rgba(82,230,200,.25)}
+.card h3{font-size:1.4rem;margin-bottom:10px;color:var(--brass)}.card p{color:var(--mut);font-size:1.05rem}
+.card a{display:inline-block;margin-top:18px;font-family:var(--h);letter-spacing:.14em;font-size:.8rem;color:var(--teal);text-transform:uppercase}
+/* terminal */
+.term{margin-top:50px;display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center}
+.scr{background:#06100d;border:6px solid var(--brass2);border-radius:18px;box-shadow:0 0 0 3px #150e08,0 0 50px rgba(82,230,200,.25),inset 0 0 60px rgba(82,230,200,.12);padding:22px;min-height:290px;font-family:var(--m);color:var(--teal);font-size:1rem;position:relative;overflow:hidden}
+.scr::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);pointer-events:none}
+.scr .dim{color:#3b9d8a}.scr .u{color:var(--brass)}.cur{display:inline-block;width:9px;height:1em;background:var(--teal);vertical-align:-2px;animation:bl 1s infinite}
+.feat li{list-style:none;padding:14px 0 14px 46px;border-bottom:1px dashed var(--brass2);position:relative;color:var(--mut)}
+.feat li::before{content:"⚙";position:absolute;left:6px;color:var(--brass);font-size:1.4rem}.feat b{color:var(--txt);font-family:var(--h);letter-spacing:.06em}
+/* quote */
+.band{background:var(--bg2);border-block:3px double var(--brass2);text-align:center}
+blockquote{font-size:clamp(1.5rem,3.8vw,2.7rem);font-style:italic;max-width:880px;margin:auto;line-height:1.35}
+cite{display:block;margin-top:22px;font-family:var(--m);color:var(--cop);font-style:normal;font-size:.95rem}
+/* blog */
+.hd{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:54px}
+.post{background:var(--paper);color:var(--ink);padding:34px 28px 28px;border-radius:3px;position:relative;box-shadow:0 14px 30px #000a;transition:.35s;transform:rotate(var(--r,0deg));background-image:radial-gradient(#0000,#8a642233)}
+.post:nth-child(1){--r:-1.2deg}.post:nth-child(2){--r:.8deg}.post:nth-child(3){--r:-.6deg}.post:hover{transform:rotate(0) translateY(-10px)}
+.post::before{content:"";position:absolute;top:-10px;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f4d98a,#8a6422);box-shadow:0 3px 5px #0008}
+.post .tg{font-family:var(--m);color:var(--cop);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+.post h3{font-size:1.3rem;margin:10px 0;color:var(--ink)}.post p{font-size:1.02rem;opacity:.85}.post small{display:block;margin-top:16px;font-family:var(--m);opacity:.7}
+/* steps */
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px;counter-reset:s}
+.step{border:2px dashed var(--brass2);padding:30px 22px;border-radius:6px;background:rgba(212,166,74,.04);counter-increment:s;position:relative}
+.step::before{content:counter(s,upper-roman);font-family:var(--h);font-size:2.6rem;font-weight:900;color:var(--brass);display:block}.step h4{font-size:1.1rem;margin:4px 0 8px}.step p{color:var(--mut);font-size:1rem}
+/* telegram */
+.tg2{background:var(--paper);color:var(--ink);border-radius:4px;padding:clamp(34px,6vw,70px);text-align:center;box-shadow:0 0 0 8px var(--bg),0 0 0 11px var(--brass2),0 30px 60px #000a;background-image:repeating-linear-gradient(0deg,#0000 0 27px,#8a642222 27px 28px)}
+.tg2 h2{margin:12px auto;color:var(--ink)}.tg2 .eb{color:var(--cop)}.tg2 p{max-width:520px;margin:auto auto 28px;font-size:1.2rem}
+.tg2 form{display:flex;gap:12px;max-width:540px;margin:auto;flex-wrap:wrap;justify-content:center}
+.tg2 input{flex:1;min-width:220px;padding:15px 18px;border:2px solid var(--ink);background:#fff9;font:inherit;font-family:var(--m);border-radius:3px;color:var(--ink)}
+.tg2 .btn{background:var(--ink);color:var(--paper);border-color:var(--ink)}.ok{margin-top:16px;font-family:var(--m);min-height:1.5em;color:var(--cop)}
+footer{border-top:3px double var(--brass2);padding:50px 0 calc(40px + env(safe-area-inset-bottom,0));color:var(--mut);font-family:var(--m);font-size:.95rem;background:#0f0905}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.fl{display:flex;gap:24px}.fl a:hover{color:var(--brass)}
+.ck{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0));max-width:500px;margin-left:auto;z-index:60;background:#21160d;border:2px solid var(--brass2);border-radius:6px;padding:16px 18px;display:flex;gap:14px;align-items:center;font-family:var(--m);font-size:.85rem;color:var(--mut);box-shadow:0 20px 50px #000c}
+.ck .btn{padding:10px 18px;font-size:.75rem;flex-shrink:0}.hide{display:none}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){.links{position:fixed;left:0;right:0;top:calc(70px + env(safe-area-inset-top,0));flex-direction:column;background:var(--bg);padding:26px;border-bottom:3px double var(--brass2);transform:translateY(-140%);transition:.35s}.links.open{transform:none}.burger{display:block}
+.gs,.st{grid-template-columns:1fr 1fr}.g3,.posts,.term{grid-template-columns:1fr}section{padding:80px 0}}
+@media(max-width:520px){.gs,.st{grid-template-columns:1fr}.ck{flex-direction:column;align-items:stretch}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
-ROCKIN’ AI PROJECT
-The EngineOracleDispatchesAboutJoin the Guild
-☰
+.ph{padding:170px 0 80px;text-align:center;position:relative;overflow:hidden;border-bottom:3px double var(--brass2);background:radial-gradient(circle at 50% 100%,rgba(82,230,200,.1),transparent 60%)}
+.ph h1{font-size:clamp(2.1rem,6vw,4rem)}.ph .sub{margin:20px auto 0}
+.art{max-width:760px;margin:auto;padding:70px 24px 30px;position:relative;z-index:2}
+.art p{margin:0 0 1.4em;font-size:1.25rem}.art>p:first-of-type::first-letter{font-family:var(--h);float:left;font-size:4.6rem;line-height:.8;padding:8px 14px 0 0;color:var(--brass);font-weight:900}
+.art h2{font-size:1.9rem;margin:2em 0 .6em;color:var(--brass)}.art ul{margin:0 0 1.4em 1.2em;font-size:1.2rem}.art li{margin-bottom:.5em}.art a{color:var(--teal);border-bottom:1px dashed var(--teal)}
+.art blockquote{border-left:4px solid var(--cop);padding:6px 0 6px 24px;margin:2em 0;font-size:1.55rem;font-style:italic;color:var(--brass);text-align:left;max-width:none}
+.meta{font-family:var(--m);color:var(--mut);font-size:.95rem;margin-top:18px}.crumb{font-family:var(--m);color:var(--mut);font-size:.9rem;margin-bottom:18px}.crumb a{color:var(--teal)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:20px auto 90px;padding:0 24px}
+.pn a{border:2px solid var(--brass2);padding:20px;border-radius:6px;font-family:var(--h);transition:.3s}.pn a:hover{border-color:var(--brass);background:rgba(212,166,74,.08)}.pn a:last-child{text-align:right}
+.pn small{display:block;font-family:var(--m);color:var(--mut);font-size:.8rem;letter-spacing:.1em;margin-bottom:6px}
+#pb{position:fixed;top:0;left:0;height:4px;width:0;background:var(--bra);z-index:70}
+.tg2 textarea{width:100%;min-height:130px;padding:15px 18px;border:2px solid var(--ink);background:#fff9;font-family:var(--m);font-size:1rem;border-radius:3px;color:var(--ink);margin-bottom:12px}
+.tg2 form.col{flex-direction:column;align-items:stretch}.tg2 form.col input{width:100%}
+@media(max-width:520px){.pn{grid-template-columns:1fr}.pn a:last-child{text-align:left}}
+</style>
+</head>
+<body><div id="pb"></div>
+<nav><div class="wrap"><a href="/" class="logo"><svg viewBox="-50 -50 100 100" data-gear="10,26,34,10"></svg> ROCKIN’ AI PROJECT</a><div class="links" id="lk"><a href="/#about">The Engine</a><a href="/#oracle">Oracle</a><a href="/blog">Dispatches</a><a href="/about">About</a><a href="/contact" class="btn p" style="padding:10px 22px">Join the Guild</a></div><button class="burger" id="bg" aria-label="Menu">☰</button></div></nav>
 
-AETHER ENGINE · STATUS: ONLINE
-EST. IN THE AGE OF STEAM & SILICONAI For Better Future!
-Where brass meets brains. Explore how artificial intelligence empowers growth and innovation for a brighter future.
-Explore NowMeet the Oracle
-Machine Learning⚙Ethics⚙Innovation⚙Automation⚙Creativity⚙Society⚙
-// The Engine Room
-Powered by curiosity. Driven by humanity.
-❦
-Rockin’ AI Project is a workshop for unravelling artificial intelligence — its breakthroughs, trends and ethical questions — for enthusiasts and professionals alike.
-0Ideas explored
-0Industries touched
-0Curious readers
-0Human-curated
-// The Workshop
-Three engines that power the future.
-🚀
-Growth
-How machine-learning algorithms are revolutionizing industries and helping people and businesses scale.
-Read dispatches →
-💡
-Innovation
-The latest advancements and trends in AI, explained clearly and without the smoke and mirrors.
-Read dispatches →
-⚖️
-Ethics
-The debates shaping AI’s future — fairness, privacy, transparency — discussed openly and thoughtfully.
-Read dispatches →
-// The Oracle
-A thinking machine, built with heart.
+<header class="hero" id="top">
+<svg class="gear" style="width:560px;top:-160px;left:-180px" viewBox="-50 -50 100 100" data-gear="16,34,44,12"></svg>
+<svg class="gear r" style="width:420px;bottom:-120px;right:-110px" viewBox="-50 -50 100 100" data-gear="12,34,45,10"></svg>
+<svg class="gear" style="width:200px;top:30%;right:12%;animation-duration:25s" viewBox="-50 -50 100 100" data-gear="9,30,40,10"></svg>
+<div class="steam"><i style="left:12%"></i><i style="left:38%;animation-delay:3s"></i><i style="left:64%;animation-delay:6s"></i><i style="left:86%;animation-delay:1.5s"></i></div>
+<div class="wrap">
+<div class="badge"><b></b> AETHER ENGINE · STATUS: ONLINE</div>
+<h1><small>EST. IN THE AGE OF STEAM &amp; SILICON</small>AI For<br><span class="brass">Better Future!</span></h1>
+<p class="lead">Where brass meets brains. Explore how artificial intelligence empowers growth and innovation for a brighter future.</p>
+<div class="cta"><a href="#works" class="btn p">Explore Now</a><a href="#oracle" class="btn g">Meet the Oracle</a></div>
+</div></header>
 
-	•	Explains Complex concepts in plain, friendly language.
-	•	Questions Every algorithm deserves an ethical examination.
-	•	Empowers Practical ideas you can apply to real work.
-	•	Evolves New dispatches as the technology advances.
-“The future isn’t predicted by clockwork. It’s built, gear by gear, together.”
-— The Rockin’ AI Manifesto
-// Field Notes
-Scratches & dispatches.
-All Dispatches
-Featured · Trends
-Welcome to the Den: Why We Write About AI
-A tour of this workshop — advancements, trends and the ethics that matter most.
-— 2 min read Technology
-Machine Learning, Minus the Mystery
-The core ideas behind today’s algorithms, in plain language.
-— 2 min read Society
-Building AI That Earns Our Trust
-What responsible, human-centered AI looks like in practice.
-— 2 min read
-// Blueprint
-From curious to confident.
-Discover
-Browse the latest ideas and breakthroughs.
-Understand
-Clear explanations of complex concepts.
-Question
-Join the ethical conversation.
-Create
-Apply AI to your own projects.
-// Telegram
-Join the Guild of Thinkers
-Receive fresh dispatches on AI delivered straight to your inbox. No spam — only signal.
-Send Telegram
+<div class="tick"><div class="tk" id="tk"><span>Machine Learning</span><b>⚙</b><span>Ethics</span><b>⚙</b><span>Innovation</span><b>⚙</b><span>Automation</span><b>⚙</b><span>Creativity</span><b>⚙</b><span>Society</span><b>⚙</b></div></div>
 
-© 2026 Rockin’ AI Project — All Rights Reserved.
-HomeDispatchesAboutContact
-This website uses cookies to analyze traffic and optimize your experience.Accept
+<section id="about"><svg class="gear r" style="width:380px;top:-100px;right:-130px" viewBox="-50 -50 100 100" data-gear="14,34,44,12"></svg>
+<div class="wrap">
+<div class="eb rv">// The Engine Room</div>
+<h2 class="rv">Powered by curiosity. <span class="brass">Driven by humanity.</span></h2>
+<div class="orn rv">❦</div>
+<p class="sub rv">Rockin’ AI Project is a workshop for unravelling artificial intelligence — its breakthroughs, trends and ethical questions — for enthusiasts and professionals alike.</p>
+<div class="gs">
+<div class="gauge rv" data-v="85" data-n="120" data-s="+"><svg viewBox="0 0 200 130"><path d="M20 100A80 80 0 0 1 180 100" fill="none" stroke="#8a6422" stroke-width="6"/><g data-t></g><g class="nd"><path d="M100 100L100 34" stroke="#c4693c" stroke-width="4" stroke-linecap="round"/></g><circle cx="100" cy="100" r="9" fill="#d4a64a"/></svg><strong>0</strong><span>Ideas explored</span></div>
+<div class="gauge rv" data-v="60" data-n="24" data-s=""><svg viewBox="0 0 200 130"><path d="M20 100A80 80 0 0 1 180 100" fill="none" stroke="#8a6422" stroke-width="6"/><g data-t></g><g class="nd"><path d="M100 100L100 34" stroke="#c4693c" stroke-width="4" stroke-linecap="round"/></g><circle cx="100" cy="100" r="9" fill="#d4a64a"/></svg><strong>0</strong><span>Industries touched</span></div>
+<div class="gauge rv" data-v="75" data-n="8" data-s="K+"><svg viewBox="0 0 200 130"><path d="M20 100A80 80 0 0 1 180 100" fill="none" stroke="#8a6422" stroke-width="6"/><g data-t></g><g class="nd"><path d="M100 100L100 34" stroke="#c4693c" stroke-width="4" stroke-linecap="round"/></g><circle cx="100" cy="100" r="9" fill="#d4a64a"/></svg><strong>0</strong><span>Curious readers</span></div>
+<div class="gauge rv" data-v="100" data-n="100" data-s="%"><svg viewBox="0 0 200 130"><path d="M20 100A80 80 0 0 1 180 100" fill="none" stroke="#8a6422" stroke-width="6"/><g data-t></g><g class="nd"><path d="M100 100L100 34" stroke="#c4693c" stroke-width="4" stroke-linecap="round"/></g><circle cx="100" cy="100" r="9" fill="#d4a64a"/></svg><strong>0</strong><span>Human-curated</span></div>
+</div></div></section>
+
+<section id="works" style="padding-top:20px"><div class="wrap">
+<div class="eb rv">// The Workshop</div><h2 class="rv">Three engines that <span class="brass">power the future.</span></h2>
+<div class="g3">
+<article class="card rv"><div class="ic">🚀</div><h3>Growth</h3><p>How machine-learning algorithms are revolutionizing industries and helping people and businesses scale.</p><a href="/blog">Read dispatches →</a></article>
+<article class="card rv"><div class="ic">💡</div><h3>Innovation</h3><p>The latest advancements and trends in AI, explained clearly and without the smoke and mirrors.</p><a href="/blog">Read dispatches →</a></article>
+<article class="card rv"><div class="ic">⚖️</div><h3>Ethics</h3><p>The debates shaping AI’s future — fairness, privacy, transparency — discussed openly and thoughtfully.</p><a href="/blog">Read dispatches →</a></article>
+</div></div></section>
+
+<section id="oracle" style="background:var(--bg2);border-block:3px double var(--brass2)"><div class="wrap">
+<div class="eb rv">// The Oracle</div><h2 class="rv">A thinking machine, <span class="brass">built with heart.</span></h2>
+<div class="term"><div class="scr rv" id="scr" aria-label="Terminal demo"></div>
+<ul class="feat rv"><li><b>Explains</b><br>Complex concepts in plain, friendly language.</li><li><b>Questions</b><br>Every algorithm deserves an ethical examination.</li><li><b>Empowers</b><br>Practical ideas you can apply to real work.</li><li><b>Evolves</b><br>New dispatches as the technology advances.</li></ul></div>
+</div></section>
+
+<section class="band"><div class="wrap"><blockquote class="rv">“The future isn’t predicted by clockwork. It’s <span class="brass">built, gear by gear, together.</span>”</blockquote><cite class="rv">— The Rockin’ AI Manifesto</cite></div></section>
+
+<section id="scratches"><div class="wrap">
+<div class="hd"><div><div class="eb rv">// Field Notes</div><h2 class="rv">Scratches <span class="brass">&amp; dispatches.</span></h2></div><a href="/blog" class="btn g rv">All Dispatches</a></div>
+<div class="posts">
+<a href="/welcome-to-the-den" class="post rv"><span class="tg">Featured · Trends</span><h3>Welcome to the Den: Why We Write About AI</h3><p>A tour of this workshop — advancements, trends and the ethics that matter most.</p><small>— 2 min read</small></a>
+<a href="/machine-learning-minus-the-mystery" class="post rv"><span class="tg">Technology</span><h3>Machine Learning, Minus the Mystery</h3><p>The core ideas behind today’s algorithms, in plain language.</p><small>— 2 min read</small></a>
+<a href="/building-ai-that-earns-our-trust" class="post rv"><span class="tg">Society</span><h3>Building AI That Earns Our Trust</h3><p>What responsible, human-centered AI looks like in practice.</p><small>— 2 min read</small></a>
+</div></div></section>
+
+<section style="background:var(--bg2);border-block:3px double var(--brass2)"><div class="wrap">
+<div class="eb rv">// Blueprint</div><h2 class="rv">From curious to <span class="brass">confident.</span></h2>
+<div class="st"><div class="step rv"><h4>Discover</h4><p>Browse the latest ideas and breakthroughs.</p></div><div class="step rv"><h4>Understand</h4><p>Clear explanations of complex concepts.</p></div><div class="step rv"><h4>Question</h4><p>Join the ethical conversation.</p></div><div class="step rv"><h4>Create</h4><p>Apply AI to your own projects.</p></div></div>
+</div></section>
+
+<section id="join"><div class="wrap"><div class="tg2 rv">
+<div class="eb">// Telegram</div><h2>Join the Guild of Thinkers</h2>
+<p>Receive fresh dispatches on AI delivered straight to your inbox. No spam — only signal.</p>
+<form id="f"><input type="email" id="em" placeholder="your@email.com" required aria-label="Email"><button class="btn" type="submit">Send Telegram</button></form><div class="ok" id="ok"></div>
+</div></div></section>
+
+<footer><div class="wrap"><div>© <span id="y">2026</span> Rockin’ AI Project — All Rights Reserved.</div><div class="fl"><a href="/">Home</a><a href="/blog">Dispatches</a><a href="/about">About</a><a href="/contact">Contact</a></div></div></footer>
+<div class="ck" id="ck"><span>This website uses cookies to analyze traffic and optimize your experience.</span><button class="btn p" id="ac">Accept</button></div>
+
+<script>
+const $=s=>document.querySelector(s);
+// gear generator: teeth, hole r, body r, outer r
+document.querySelectorAll('[data-gear]').forEach(s=>{const[n,h,r,R]=s.dataset.gear.split(',').map(Number),st=6.2832/n;let d='';
+ for(let i=0;i<n;i++){const a=i*st;[[r,0],[R-2,.12],[R-2,.42],[r,.55]].forEach(([q,o],j)=>{const t=a+o*st;d+=(i+j?'L':'M')+(Math.cos(t)*q).toFixed(1)+' '+(Math.sin(t)*q).toFixed(1)})}
+ const hr=h/2.2;s.innerHTML=`<path fill-rule="evenodd" d="${d}Z M${hr} 0A${hr} ${hr} 0 1 0 ${-hr} 0A${hr} ${hr} 0 1 0 ${hr} 0Z"/>`});
+// gauge ticks
+document.querySelectorAll('[data-t]').forEach(g=>{let h='';for(let i=0;i<=10;i++){const a=(-120+i*24)*Math.PI/180,x1=100+Math.sin(a)*72,y1=100-Math.cos(a)*72,x2=100+Math.sin(a)*(i%5?64:58),y2=100-Math.cos(a)*(i%5?64:58);h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#e9dcc0" stroke-width="2"/>`}g.innerHTML=h});
+// nav
+const L=$('#lk');$('#bg').onclick=()=>L.classList.toggle('open');L.querySelectorAll('a').forEach(a=>a.onclick=()=>L.classList.remove('open'));
+const tk=$('#tk');if(tk)tk.innerHTML+=tk.innerHTML;$('#y').textContent=new Date().getFullYear();
+// reveal + gauges
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('in');
+ if(t.dataset.v){const nd=t.querySelector('.nd'),v=+t.dataset.v;setTimeout(()=>nd.style.transform=`rotate(${-120+v*2.4}deg)`,150);
+  const el=t.querySelector('strong'),to=+t.dataset.n;let s0=null;const f=ts=>{s0=s0||ts;const p=Math.min((ts-s0)/2000,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+t.dataset.s;p<1&&requestAnimationFrame(f)};requestAnimationFrame(f)}
+ io.unobserve(t)}),{threshold:.2});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+// terminal typing
+const lines=['<span class="dim">aether-engine v1.0 // booting…</span>','<span class="u">visitor@den:~$</span> how will AI shape tomorrow?','<span class="dim">consulting the gears…</span>','Responsibly. With curiosity, with ethics,','and with people at the center of every machine.','<span class="u">visitor@den:~$</span> <span class="cur"></span>'];
+const sc=$('#scr');let li=0,started=false;
+const run=()=>{if(started)return;started=true;(function nx(){if(li>=lines.length){setTimeout(()=>{sc.innerHTML='';li=0;started=false;run()},6000);return}sc.innerHTML+=lines[li++]+'<br>';setTimeout(nx,900)})()};
+sc&&new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){run()}},{threshold:.4}).observe(sc);
+// forms/cookie
+if($('#f'))$('#f').onsubmit=e=>{e.preventDefault();$('#ok').textContent='✉ Telegram dispatched! Welcome to the Guild.';e.target.reset()};
+try{localStorage.getItem('ck')&&$('#ck').classList.add('hide')}catch(_){}
+$('#ac').onclick=()=>{$('#ck').classList.add('hide');try{localStorage.setItem('ck','1')}catch(_){}};
+
+const pb=$('#pb');if(pb)addEventListener('scroll',()=>{const d=document.documentElement;pb.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+</script>
+</body></html>
